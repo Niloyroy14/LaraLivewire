@@ -4,37 +4,37 @@
             <div class="col-md-5">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">Add New Student</h5>
-                        <a href="{{route('list.students')}}" class="btn btn-sm btn-info" style="float:right ;">All Students</a>
+                        <h5 class="card-title">Add New Product</h5>
+                        <a href="{{route('list.products')}}" class="btn btn-sm btn-info" style="float:right;">All Products</a>
                     </div>
                     <div class="card-body">
                         @if(session()->has('message'))
                         <div class="alert alert-success text-center">{{session('message')}}</div>
                         @endif
-                        <form wire:submit.prevent="storeStudent">
+                        <form wire:submit.prevent="storeProduct">
                             <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" wire:model="name">
-                                @error('name')
+                                <label for="title">Title</label>
+                                <input type="text" class="form-control" wire:model="title">
+                                @error('title')
                                 <span class="text-danger" style="font-size:12px;">{{$message}}</span>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control" wire:model="email">
-                                @error('email')
+                                <label for="price">Price</label>
+                                <input type="text" class="form-control" wire:model="price">
+                                @error('price')
                                 <span class="text-danger" style="font-size:12px;">{{$message}}</span>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="phone">Phone</label>
-                                <input type="text" class="form-control" wire:model="phone">
-                                @error('phone')
+                                <label for="images">Image</label>
+                                <input type="file" class="form-control" wire:model="images" multiple>
+                                @error('images.*')
                                 <span class="text-danger" style="font-size:12px;">{{$message}}</span>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-success">Add Student </button>
+                                <button type="submit" class="btn btn-success">Add Product </button>
                             </div>
                         </form>
                     </div>

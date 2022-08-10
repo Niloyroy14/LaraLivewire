@@ -34,7 +34,7 @@ class AddStudentComponent extends Component
         //Student::create($validatedData);
 
         Student::create($data);
-        session()->flash('message','A new Student Has Added Succesfully');
+        session()->flash('message','A New Student Has Added Succesfully');
 
         //clear the input field
 

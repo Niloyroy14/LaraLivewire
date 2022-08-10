@@ -4,14 +4,13 @@
             <div class="col-md-5">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">Add New Student</h5>
-                        <a href="{{route('list.students')}}" class="btn btn-sm btn-info" style="float:right ;">All Students</a>
+                        <h5 class="card-title">Edit Student</h5>
                     </div>
                     <div class="card-body">
                         @if(session()->has('message'))
                         <div class="alert alert-success text-center">{{session('message')}}</div>
                         @endif
-                        <form wire:submit.prevent="storeStudent">
+                        <form wire:submit.prevent="updateStudent">
                             <div class="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" class="form-control" wire:model="name">
@@ -34,7 +33,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-success">Add Student </button>
+                                <button type="submit" class="btn btn-success">Update Student </button>
                             </div>
                         </form>
                     </div>
