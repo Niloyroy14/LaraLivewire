@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Student;
+use Illuminate\Support\Facades\File;
 
 class IndexStudentComponent extends Component
 {
@@ -23,7 +24,15 @@ class IndexStudentComponent extends Component
     }
 
     public function deleteStudent(){
-        $student = Student::where('id', $this->delete_id)->delete();
+        //$student = Student::where('id', $this->delete_id)->delete();
+        $student = Student::find($this->delete_id);
+        if (!is_null($student)) {
+            //delete the  image
+            if (File::exists('uploads/student/' . $student->photo)) {
+                File::delete('uploads/student/' . $student->photo);
+            }
+            $student->delete();
+        }
         $this->dispatchBrowserEvent('deleteAlert');
     }
 

@@ -13,7 +13,7 @@
                         @endif
                         <div class="row mb-3">
                             <div class="col-md-12">
-                                   <input type="text" wire:model="searchItem" class="form-control w-25" placeholder="Search..." style="float:right">
+                                <input type="text" wire:model="searchItem" class="form-control w-25" placeholder="Search..." style="float:right">
                             </div>
                         </div>
                         <table class="table table-bordered">
@@ -23,6 +23,7 @@
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Phone</th>
+                                    <th>Photo</th>
                                     <th width="30%">Action</th>
                                 </tr>
                             </thead>
@@ -34,9 +35,14 @@
                                     <td>{{$student->name}}</td>
                                     <td>{{$student->email}}</td>
                                     <td>{{$student->phone}}</td>
+                                    <td style="text-align:center ;">
+                                        @if($student->photo!=null && $student->photo!='')
+                                        <img src="{{asset('uploads/student/'.$student->photo)}}" alt="{{$student->name}}" height="50px" width="50px">
+                                        @endif
+                                    </td>
                                     <td>
                                         <a href="{{route('edit.students',$student->id)}}" class="btn btn-sm btn-warning">Edit</a>
-                                        
+
                                         <!-- <a href="javascript:void(0)" class="btn btn-sm btn-danger" wire:click="delete({{$student->id}})">Delete</a> -->
                                         <a href="javascript:void(0)" class="btn btn-sm btn-danger" wire:click.prevent="delete({{$student->id}})">Delete</a>
                                     </td>

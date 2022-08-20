@@ -33,6 +33,22 @@
                                 <span class="text-danger" style="font-size:12px;">{{$message}}</span>
                                 @enderror
                             </div>
+                            @if($photo)
+                            <div class="form-group">
+                                <label for="photo">Photo Preview</label>
+                                <br>
+                                <img src="{{ $photo->temporaryUrl() }}" height="100px" width="100px">
+                            </div>
+                            @endif
+                            <div class="form-group">
+                                <label for="photo">Photo</label>
+                                <input type="file" class="form-control" wire:model="photo">
+                                <div wire:loading wire:target="photo">Uploading...</div>
+                                <!--- for showing uploading text when file select --->
+                                @error('photo')
+                                <span class="text-danger" style="font-size:12px;">{{$message}}</span>
+                                @enderror
+                            </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success">Add Student </button>
                             </div>

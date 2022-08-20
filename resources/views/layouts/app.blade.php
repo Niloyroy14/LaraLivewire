@@ -4,22 +4,18 @@
 <head>
 	<title> @yield('title','Laravel Livewire') </title>
 
-	<meta name="csrf-token" content="{{ csrf_token() }}">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
-	<!-- <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}"> -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
 	<!--fontawsome -->
-
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-	<!--Alertify css-->
-	<!-- CSS -->
+
+	<!--Alertify Css-->
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
-	<!--mycss-->
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}?ver=1.1">
 
 	@livewireStyles
 </head>
@@ -27,47 +23,29 @@
 <body>
 
 
-	{{$slot}}
+	{{ $slot }}
+	<!---- when full component render --->
+
+	{{-- @yield('content')  --}}
 
 
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
 
-	{{-- <div class="wrapper">
+	<!-- Jquery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-	@include('partial.nav')
-
-
-	@include('partial.messages')
-
-	
-   @yield('content')
-
-
-
-  	@include('partial.footer')
-
-</div> --}}
-
-
-
-
-
-
-	<!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>-->
-	<script src="{{asset('js/jquery-3.6.0.min.js')}}"> </script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 	<!--Alertify Js-->
 	<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-
-	<script src="{{asset('js/myscript.js')}}"></script>
-
-	{{--@yield('scripts')--}}
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 	@livewireScripts
 
-	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	@yield('scripts')
 
 	<script type="text/javascript">
+		//for delete any data
+
 		window.addEventListener('show-delete-confirmation', event => {
 			Swal.fire({
 				title: 'Are you sure?',

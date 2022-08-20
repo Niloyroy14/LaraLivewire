@@ -26,9 +26,20 @@
                                 <span class="text-danger" style="font-size:12px;">{{$message}}</span>
                                 @enderror
                             </div>
+                            <!-- Livewire provide this image previe temporary ulr automatic see documentation -->
+                            @if($images)
+                            <div class="form-group">
+                                <label for="images">Image Preview</label>
+                                <br>
+                                @foreach($images as $image)
+                                <img src="{{ $image->temporaryUrl() }}" height="100px" width="100px">
+                                @endforeach
+                            </div>
+                            @endif
                             <div class="form-group">
                                 <label for="images">Image</label>
                                 <input type="file" class="form-control" wire:model="images" multiple>
+                                <div wire:loading wire:target="images">Uploading...</div>  <!--- for showing uploading text when file select --->
                                 @error('images.*')
                                 <span class="text-danger" style="font-size:12px;">{{$message}}</span>
                                 @enderror

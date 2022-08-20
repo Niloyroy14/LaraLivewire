@@ -32,6 +32,28 @@
                                 <span class="text-danger" style="font-size:12px;">{{$message}}</span>
                                 @enderror
                             </div>
+                            @if(!is_null($old_photo))
+                            <div class="form-group">
+                                <label for="images">Old Photo</label>
+                                <br>
+                                <img src="{{asset('uploads/student/'.$old_photo)}}" alt="{{$name}}" height="70px" width="70px">
+                            </div>
+                            @endif
+                            @if($photo)
+                            <div class="form-group">
+                                <label for="">Photo Preview</label>
+                                <br>
+                                <img src="{{ $photo->temporaryUrl() }}" height="100px" width="100px">
+                            </div>
+                            @endif
+                            <div class="form-group">
+                                <label for="photo">New Photo</label>
+                                <input type="file" class="form-control" wire:model="photo">
+                                <div wire:loading wire:target="photo">Uploading...</div>
+                                @error('photo')
+                                <span class="text-danger" style="font-size:12px;">{{$message}}</span>
+                                @enderror
+                            </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success">Update Student </button>
                             </div>
